@@ -1,13 +1,8 @@
-class AmdDirectParser
+class AmdDirectParser < BaseParser
 
   SOURCE = 'AMDirect'.freeze
 
   attr_accessor :page, :html
-
-  def initialize(page)
-    @page = page
-    @html = page.to_s
-  end
 
   def name
     page.at(".customer-details span#name").text
