@@ -5,4 +5,13 @@ class BaseParser
     @html = page.to_s
   end
 
+  def attributes
+    {
+      name: name,
+      email: email,
+      message: message,
+      source: source
+    }
+  end
+
 end

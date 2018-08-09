@@ -27,7 +27,6 @@ class EnquiriesProcessorService
   end
 
   def parse_enquiry
-    # TODO
-    # EnquiryParserJob.perform_later(@enquiry.id)
+    EnquiryParserJob.perform_later(@enquiry.id)
   end
 end
