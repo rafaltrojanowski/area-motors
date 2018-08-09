@@ -6,19 +6,19 @@ describe AmdDirectParser do
   let(:subject) { described_class.new(page) }
 
   describe "#name" do
-    it 'equals' do
+    it 'returns name' do
       expect(subject.name).to eq("John Smith")
     end
   end
 
   describe "#email" do
-    it 'email' do
+    it 'returs email' do
       expect(subject.email).to eq("johnsmith@mailinator.com")
     end
   end
 
   describe "#message" do
-    it 'equals' do
+    it 'returns message' do
       expected = """I'm interested in buying this car.
 Would you take part exchange?
 Thanks,
@@ -29,7 +29,7 @@ John"""
   end
 
   describe "#source" do
-    it 'equals' do
+    it 'returns source' do
       expect(subject.source).to eq(AmdDirectParser::SOURCE)
     end
   end

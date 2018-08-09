@@ -6,25 +6,25 @@ describe CarsForSaleParser do
   let(:subject) { described_class.new(page) }
 
   describe "#name" do
-    it 'equals' do
+    it 'returns name' do
       expect(subject.name).to eq("John Smith")
     end
   end
 
   describe "#email" do
-    it 'email' do
+    it 'returns email' do
       expect(subject.email).to eq("johnsmith@mailinator.com")
     end
   end
 
   describe "#message" do
-    it 'equals' do
+    it 'returns message' do
       expect(subject.message).to eq("Do you take part exchange?What is the warranty like?")
     end
   end
 
   describe "#source" do
-    it 'equals' do
+    it 'returns source' do
       expect(subject.source).to eq(CarsForSaleParser::SOURCE)
     end
   end
