@@ -20,5 +20,9 @@
 <%= @enquiry.message %>
 <br>
 
+<strong><%= Enquiry.human_attribute_name(:message) %>:</strong>
+<%= @enquiry.state %>
+<br>
+
 <%#= link_to 'Edit', edit_enquiry_path(@enquiry) %>
 <%= link_to 'Back', enquiries_path %>

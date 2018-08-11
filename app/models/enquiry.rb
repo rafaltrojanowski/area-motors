@@ -5,6 +5,8 @@ class Enquiry < ApplicationRecord
 
   has_many :transitions, class_name: "EnquiryTransition", autosave: false
 
+  enum state: [:pending, :done]
+
   def file_path
     ActiveStorage::Blob.service.send(:path_for, file.blob.key)
   end

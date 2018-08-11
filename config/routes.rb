@@ -6,5 +6,10 @@ Rails.application.routes.draw do
 
 
   resources :enquiries, only: [:index, :show]
+  resources :enquiry_states, only: [] do
+    member do
+      get :done
+    end
+  end
   resources :imports, only: [:create]
 end
