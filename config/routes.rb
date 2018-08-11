@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
   get "home/index"
 
-  resources :enquiries do
+  resources :enquiries, only: [:index, :show] do
     collection do
       get :import
     end

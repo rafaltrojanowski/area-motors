@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<strong><%= Enquiry.human_attribute_name(:id) %>:</strong>
+<%= @enquiry.id %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:source) %>:</strong>
+<%= @enquiry.source %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:email) %>:</strong>
+<%= @enquiry.email %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:name) %>:</strong>
+<%= @enquiry.name %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:message) %>:</strong>
+<%= @enquiry.message %>
+<br>
+
+<%#= link_to 'Edit', edit_enquiry_path(@enquiry) %>
+<%= link_to 'Back', enquiries_path %>

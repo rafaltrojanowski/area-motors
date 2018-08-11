@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Enquiries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= Enquiry.human_attribute_name(:source)%></th>
+      <th><%= Enquiry.human_attribute_name(:email)%></th>
+      <th><%= Enquiry.human_attribute_name(:name)%></th>
+      <th><%= Enquiry.human_attribute_name(:message)%></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enquiries.each do |enquiry| %>
+      <tr>
+        <td><%= enquiry.source %></td>
+        <td><%= enquiry.name %></td>
+        <td><%= enquiry.email %></td>
+        <td><%= enquiry.message %></td>
+        <td><%= link_to 'Show', enquiry %></td>
+        <td><%#= link_to 'Edit', edit_enquiry_path(enquiry) %></td>
+        <td><%#= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%#= link_to 'New Enquiry', new_enquiry_path %>
