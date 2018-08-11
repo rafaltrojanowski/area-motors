@@ -5,8 +5,7 @@ class EnquiriesController < ApplicationController
   # GET /enquiries.json
   def index
     @q = Enquiry.ransack(params[:q])
-    @enquiries = @q.result
-    #.page(params[:page])
+    @enquiries = @q.result.page(params[:page])
   end
 
   # GET /enquiries/1

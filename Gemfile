@@ -42,6 +42,9 @@ gem 'sidekiq'
 gem 'statesman', '~> 3.4.1'
 # Search
 gem 'ransack'
+# Pagination
+gem 'kaminari'
+
 
 
 group :development, :test do
