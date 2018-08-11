@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Enquiries (<%= Enquiry.count %>)</h1>
+<h1>Enquiries (<%= Enquiry.active.count %>)</h1>
 
 <%= link_to 'Refresh', enquiries_path %>
 
@@ -53,6 +53,8 @@
         <td>
           <%= link_to 'Done', done_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
           <%= link_to 'Invalid', not_valid_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+          <%= link_to 'Archive', archived_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+
           <%= link_to 'Show', enquiry %>
           <%#= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>

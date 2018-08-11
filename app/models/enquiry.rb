@@ -8,7 +8,9 @@ class Enquiry < ApplicationRecord
 
   has_many :transitions, class_name: "EnquiryTransition", autosave: false
 
-  enum state: [:pending, :done, :not_valid]
+  enum state: [:pending, :done, :not_valid, :archived]
+
+  scope :active, -> { where.not(state: Enquiry.states[:archived]) }
 
   def file_path
     ActiveStorage::Blob.service.send(:path_for, file.blob.key)

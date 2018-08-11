@@ -5,8 +5,13 @@ class Enquiry::EnquiryStateMachine
   state :done
   state :not_valid
 
+  state :archived
+
   transition from: :new, to: [:done]
   transition from: :new, to: [:not_valid]
+
+  transition from: :done, to: [:archived]
+  transition from: :not_valid, to: [:archived]
 
   # guard_transition(to: :done) do |enquiry|
     # TODO: add necessary logic here
