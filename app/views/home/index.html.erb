@@ -1,3 +1,5 @@
-<%= link_to 'Check for new enquiries', import_enquiries_path %>
-<br/>
+<%= form_tag("/imports", method: "post") do %>
+  <%= submit_tag("Check for new enquiries") %>
+<% end %>
+
 <%= link_to 'See enquiries', enquiries_path %>

@@ -1,13 +1,6 @@
 class EnquiriesController < ApplicationController
   before_action :set_enquiry, only: [:show, :edit, :update, :destroy]
 
-  def import
-    service = EnquiriesProcessorService.new
-    service.process
-
-    redirect_to enquiries_path
-  end
-
   # GET /enquiries
   # GET /enquiries.json
   def index
