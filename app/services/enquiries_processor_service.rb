@@ -14,10 +14,8 @@ class EnquiriesProcessorService
       if path.match? /amdirect|carsforsale/
         next if path.match('listing')
 
-        ActiveRecord::Base.transaction do
-          create_enquiry(path)
-          parse_enquiry
-        end
+        ActiveRecord::Base.transaction { create_enquiry(path) }
+        parse_enquiry
       end
     end
   end

@@ -31,3 +31,9 @@ Please ensure the following:
 - Ruby 2.4.0
 - Bundler 1.16.1
 - PostgreSQL 10.1
+
+### Development
+
+- rails server
+- redis-server
+- bundle exec sidekiq
