@@ -43,6 +43,7 @@ class EnquiriesController < ApplicationController
   def update
     respond_to do |format|
       if @enquiry.update(enquiry_params)
+        @enquiry.transition_to!(:edited)
         format.html { redirect_to @enquiry, notice: 'Enquiry was successfully updated.' }
         format.json { render :show, status: :ok, location: @enquiry }
       else
@@ -70,6 +71,6 @@ class EnquiriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def enquiry_params
-      params.fetch(:enquiry, {})
+      params.require(:enquiry).permit(:email)
     end
 end

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "home/index"
 
 
-  resources :enquiries, only: [:index, :show]
+  resources :enquiries, only: [:index, :show, :update, :edit]
   resources :enquiry_states, only: [] do
     member do
       Enquiry.states.keys.each do |action|

@@ -1,34 +1,37 @@
 class Enquiry::EnquiryStateMachine
   include Statesman::Machine
 
-  state :new, initial: true
+  state :pending, initial: true
   state :done
   state :not_valid
+  state :edited
 
   state :archived
 
-  transition from: :new, to: [:done]
-  transition from: :new, to: [:not_valid]
+  transition from: :pending, to: [:not_valid, :done]
 
   transition from: :done, to: [:archived]
   transition from: :not_valid, to: [:archived]
+
+  transition from: :not_valid, to: [:edited]
+  transition from: :edited, to: [:done]
 
   # guard_transition(to: :done) do |enquiry|
     # TODO: add necessary logic here
   # end
 
-  before_transition(from: :new, to: :done) do |order, transition|
+  # before_transition(from: :pending, to: :done) do |order, transition|
     # TODO: add necessary logic here
-  end
+  # end
 
-  before_transition(to: :done) do |order, transition|
+  # before_transition(to: :done) do |order, transition|
     # TODO: add necessary logic here
-  end
+  # end
 
-  after_transition(to: :done) do |order, transition|
+  # after_transition(to: :done) do |order, transition|
     # TODO: add necessary logic here
     # MailerService.enquiry_confirmation(enquiry).deliver
-  end
+  # end
 
   after_transition do |model, transition|
     model.state = transition.to_state

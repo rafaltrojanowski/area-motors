@@ -8,7 +8,7 @@ class Enquiry < ApplicationRecord
 
   has_many :transitions, class_name: "EnquiryTransition", autosave: false
 
-  enum state: [:pending, :done, :not_valid, :archived]
+  enum state: [:pending, :done, :not_valid, :archived, :edited]
 
   scope :active, -> { where.not(state: Enquiry.states[:archived]) }
 

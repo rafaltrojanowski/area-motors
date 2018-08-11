@@ -51,9 +51,21 @@
         <td><%= enquiry.message %></td>
         <td><%= enquiry.state.humanize %></td>
         <td>
-          <%= link_to 'Done', done_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
-          <%= link_to 'Invalid', not_valid_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
-          <%= link_to 'Archive', archived_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+          <% if enquiry.can_transition_to?(:done) %>
+            <%= link_to 'Done', done_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+          <% end %>
+
+          <% if enquiry.can_transition_to?(:not_valid) %>
+            <%= link_to 'Invalid', not_valid_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+          <% end %>
+
+          <% if enquiry.can_transition_to?(:archived) %>
+            <%= link_to 'Archive', archived_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+          <% end %>
+
+          <% if enquiry.can_transition_to?(:edited) %>
+            <%= link_to 'Edit', edit_enquiry_path(enquiry) %>
+          <% end %>
 
           <%= link_to 'Show', enquiry %>
           <%#= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
