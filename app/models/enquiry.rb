@@ -1,4 +1,7 @@
 class Enquiry < ApplicationRecord
+
+  SOURCES = %w(AMDirect CarsForSale)
+
   include Statesman::Adapters::ActiveRecordQueries
 
   has_one_attached :file

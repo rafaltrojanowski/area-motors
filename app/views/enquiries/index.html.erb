@@ -4,6 +4,30 @@
 
 <%= link_to 'Refresh', enquiries_path %>
 
+<%= form_tag("/imports", method: "post") do %>
+  <%= submit_tag("Check for new enquiries") %>
+<% end %>
+
+<%= search_form_for @q do |f| %>
+
+  <%= f.label :name_cont %>
+  <%= f.search_field :name_cont %>
+
+  <%= f.label :email_cont %>
+  <%= f.search_field :email_cont %>
+
+  <%= f.label :message_cont %>
+  <%= f.search_field :message_cont %>
+
+  <%= f.select :state_eq, Enquiry.states.map { |s| [s[0].humanize, s[1]] },
+                         {:include_blank => true} %>
+
+  <%= f.select :source_eq, Enquiry::SOURCES,
+                         {:include_blank => true} %>
+
+  <%= f.submit %>
+<% end %>
+
 <table>
   <thead>
     <tr>
