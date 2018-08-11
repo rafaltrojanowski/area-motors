@@ -19,7 +19,7 @@
   <%= f.label :message_cont %>
   <%= f.search_field :message_cont %>
 
-  <%= f.select :state_eq, Enquiry.states.map { |s| [s[0].humanize, s[1]] },
+  <%= f.select :state_eq, Enquiry.states.except(:archived).map { |s| [s[0].humanize, s[1]] },
                          {:include_blank => true} %>
 
   <%= f.select :source_eq, Enquiry::SOURCES,
