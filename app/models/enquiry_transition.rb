@@ -1,7 +1,7 @@
 class EnquiryTransition < ActiveRecord::Base
   include Statesman::Adapters::ActiveRecordTransition
 
-  validates :to_state, inclusion: { in: EnquiryStateMachine.states }
+  validates :to_state, inclusion: { in: Enquiry::EnquiryStateMachine.states }
 
-  belongs_to :enquiry, inverse_of: :enquiry_transitions
+  belongs_to :enquiry, inverse_of: :transitions
 end

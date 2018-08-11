@@ -49,11 +49,13 @@
         <td><%= enquiry.name %></td>
         <td><%= enquiry.email %></td>
         <td><%= enquiry.message %></td>
-        <td><%= enquiry.state %></td>
-        <td><%= link_to 'Done', done_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %></td>
-        <td><%= link_to 'Show', enquiry %></td>
-        <td><%#= link_to 'Edit', edit_enquiry_path(enquiry) %></td>
-        <td><%#= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= enquiry.state.humanize %></td>
+        <td>
+          <%= link_to 'Done', done_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+          <%= link_to 'Invalid', not_valid_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
+          <%= link_to 'Show', enquiry %>
+          <%#= link_to 'Destroy', enquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
       </tr>
     <% end %>
   </tbody>

@@ -1,4 +1,4 @@
-class EnquiryStateMachine
+class Enquiry::EnquiryStateMachine
   include Statesman::Machine
 
   state :new, initial: true
@@ -8,9 +8,9 @@ class EnquiryStateMachine
   transition from: :new, to: [:done]
   transition from: :new, to: [:not_valid]
 
-  guard_transition(to: :done) do |enquiry|
+  # guard_transition(to: :done) do |enquiry|
     # TODO: add necessary logic here
-  end
+  # end
 
   before_transition(from: :new, to: :done) do |order, transition|
     # TODO: add necessary logic here

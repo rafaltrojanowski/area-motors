@@ -8,7 +8,7 @@ class Enquiry < ApplicationRecord
 
   has_many :transitions, class_name: "EnquiryTransition", autosave: false
 
-  enum state: [:pending, :done]
+  enum state: [:pending, :done, :not_valid]
 
   def file_path
     ActiveStorage::Blob.service.send(:path_for, file.blob.key)
@@ -32,7 +32,7 @@ class Enquiry < ApplicationRecord
   end
 
   def state_machine
-    @state_machine ||= EnquiryStateMachine.new(self,
+    @state_machine ||= Enquiry::EnquiryStateMachine.new(self,
                                                transition_class: EnquiryTransition,
                                                association_name: :transitions
                                               )

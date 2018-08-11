@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   resources :enquiries, only: [:index, :show]
   resources :enquiry_states, only: [] do
     member do
-      get :done
+      Enquiry.states.keys.each do |action|
+        get action
+      end
     end
   end
   resources :imports, only: [:create]
