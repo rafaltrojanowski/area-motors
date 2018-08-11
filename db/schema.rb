@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_09_094630) do
+ActiveRecord::Schema.define(version: 2018_08_11_045624) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,4 +46,17 @@ ActiveRecord::Schema.define(version: 2018_08_09_094630) do
     t.string "source"
   end
 
+  create_table "enquiry_transitions", force: :cascade do |t|
+    t.string "to_state", null: false
+    t.text "metadata", default: "{}"
+    t.integer "sort_key", null: false
+    t.integer "enquiry_id", null: false
+    t.boolean "most_recent", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["enquiry_id", "most_recent"], name: "index_enquiry_transitions_parent_most_recent", unique: true, where: "most_recent"
+    t.index ["enquiry_id", "sort_key"], name: "index_enquiry_transitions_parent_sort", unique: true
+  end
+
+  add_foreign_key "enquiry_transitions", "enquiries"
 end

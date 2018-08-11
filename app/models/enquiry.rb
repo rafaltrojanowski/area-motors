@@ -1,5 +1,9 @@
 class Enquiry < ApplicationRecord
+  include Statesman::Adapters::ActiveRecordQueries
+
   has_one_attached :file
+
+  has_many :transitions, class_name: "EnquiryTransition", autosave: false
 
   def file_path
     ActiveStorage::Blob.service.send(:path_for, file.blob.key)
@@ -21,4 +25,23 @@ class Enquiry < ApplicationRecord
     )
     record
   end
+
+  def state_machine
+    @state_machine ||= EnquiryStateMachine.new(self,
+                                               transition_class: EnquiryTransition,
+                                               association_name: :transitions
+                                              )
+  end
+
+  delegate :can_transition_to?, :transition_to!, :transition_to, :current_state,
+    to: :state_machine
+
+  def self.transition_class
+    EnquiryTransition
+  end
+
+  def self.initial_state
+    :new
+  end
+  private_class_method :initial_state
 end
