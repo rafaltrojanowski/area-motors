@@ -29,6 +29,36 @@ describe CarsForSaleParser do
     end
   end
 
+  describe "#make" do
+    it 'returns make' do
+      expect(subject.make).to eq("Renault")
+    end
+  end
+
+  describe "#model" do
+    it 'returns model' do
+      expect(subject.model).to eq("Clio")
+    end
+  end
+
+  describe "#colour" do
+    it 'returns colour' do
+      expect(subject.colour).to eq("White")
+    end
+  end
+
+  describe "#year" do
+    it 'returns year' do
+      expect(subject.year).to eq("2006")
+    end
+  end
+
+  describe "#reference" do
+    it 'returns reference' do
+      expect(subject.reference).to eq(nil)
+    end
+  end
+
   describe "#html" do
     it 'returns raw html' do
       expect(subject.html).to eq(

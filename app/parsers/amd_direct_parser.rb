@@ -23,4 +23,25 @@ class AmdDirectParser < BaseParser
   def source
     SOURCE
   end
+
+  def make
+    page.at(".vehicle-details span#make").text
+  end
+
+  def model
+    page.at('//span[3]').text
+  end
+
+  def colour
+    page.at(".vehicle-details span#colour").text
+  end
+
+  def year
+    page.at(".vehicle-details span#year").text
+  end
+
+  def reference
+    page.at(".vehicle-details span#listing-ref").text
+  end
+
 end

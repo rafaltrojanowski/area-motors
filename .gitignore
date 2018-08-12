@@ -33,3 +33,4 @@ pickle-email-*.html
 
 /.idea
 dump.rdb
+.DS_Store

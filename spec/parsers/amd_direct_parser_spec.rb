@@ -34,6 +34,36 @@ John"""
     end
   end
 
+  describe "#make" do
+    it 'returns make' do
+      expect(subject.make).to eq('Ford')
+    end
+  end
+
+  describe "#model" do
+    it 'returns model' do
+      expect(subject.model).to eq('Focus')
+    end
+  end
+
+  describe "#colour" do
+    it 'returns model' do
+      expect(subject.colour).to eq('blue')
+    end
+  end
+
+  describe "#year" do
+    it 'returns year' do
+      expect(subject.year).to eq('2008')
+    end
+  end
+
+  describe "#reference" do
+    it 'returns year' do
+      expect(subject.reference).to eq('AMD-FF1')
+    end
+  end
+
   describe "#html" do
     it 'returns raw html' do
       expect(subject.html).to eq(

@@ -16,8 +16,11 @@
   <%= f.label :email_cont %>
   <%= f.search_field :email_cont %>
 
-  <%= f.label :message_cont %>
-  <%= f.search_field :message_cont %>
+  <%= f.label :vehicle_details %>
+  <%= f.search_field :make_or_model_or_colour_cont %>
+
+  <%= f.label :year_cont %>
+  <%= f.search_field :year_cont %>
 
   <%= f.select :state_eq, Enquiry.states.except(:archived).map { |s| [s[0].humanize, s[1]] },
                          {:include_blank => true} %>
@@ -33,9 +36,11 @@
     <tr>
       <th><%= Enquiry.human_attribute_name(:id)%></th>
       <th><%= Enquiry.human_attribute_name(:source)%></th>
-      <th><%= Enquiry.human_attribute_name(:email)%></th>
       <th><%= Enquiry.human_attribute_name(:name)%></th>
-      <th><%= Enquiry.human_attribute_name(:message)%></th>
+      <th><%= Enquiry.human_attribute_name(:email)%></th>
+      <th><%= Enquiry.human_attribute_name(:make)%></th>
+      <th><%= Enquiry.human_attribute_name(:model)%></th>
+      <th><%= Enquiry.human_attribute_name(:year)%></th>
       <th><%= Enquiry.human_attribute_name(:state)%></th>
       <th>Actions</th>
     </tr>
@@ -48,7 +53,9 @@
         <td><%= enquiry.source %></td>
         <td><%= enquiry.name %></td>
         <td><%= enquiry.email %></td>
-        <td><%= enquiry.message %></td>
+        <td><%= enquiry.make %></td>
+        <td><%= enquiry.model %></td>
+        <td><%= enquiry.year %></td>
         <td><%= enquiry.state.humanize %></td>
         <td>
           <% if enquiry.can_transition_to?(:done) %>

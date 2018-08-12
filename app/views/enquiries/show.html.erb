@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<p>Customer details:</p>
+
 <strong><%= Enquiry.human_attribute_name(:id) %>:</strong>
 <%= @enquiry.id %>
 <br>
@@ -19,6 +21,30 @@
 <strong><%= Enquiry.human_attribute_name(:message) %>:</strong>
 <%= @enquiry.message %>
 <br>
+
+<p>Vehicle details:</p>
+
+<strong><%= Enquiry.human_attribute_name(:make) %>:</strong>
+<%= @enquiry.make %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:model) %>:</strong>
+<%= @enquiry.model %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:colour) %>:</strong>
+<%= @enquiry.colour %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:year) %>:</strong>
+<%= @enquiry.year %>
+<br>
+
+<strong><%= Enquiry.human_attribute_name(:reference) %>:</strong>
+<%= @enquiry.reference %>
+<br>
+
+<p>Status:</p>
 
 <strong><%= Enquiry.human_attribute_name(:state) %>:</strong>
 <%= @enquiry.state.humanize %>

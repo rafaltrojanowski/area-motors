@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_11_053955) do
+ActiveRecord::Schema.define(version: 2018_08_12_033848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,11 @@ ActiveRecord::Schema.define(version: 2018_08_11_053955) do
     t.text "message"
     t.string "source"
     t.integer "state", default: 0, null: false
+    t.string "make"
+    t.string "model"
+    t.string "colour"
+    t.string "year"
+    t.string "reference"
   end
 
   create_table "enquiry_transitions", force: :cascade do |t|

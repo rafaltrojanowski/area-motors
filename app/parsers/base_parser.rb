@@ -10,7 +10,12 @@ class BaseParser
       name: name,
       email: email,
       message: message,
-      source: source
+      source: source,
+      make: make,
+      model: model,
+      colour: colour,
+      year: year,
+      reference: reference,
     }
   end
 
