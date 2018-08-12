@@ -46,6 +46,7 @@
       <th><%= sort_link(@q, :model) %></th>
       <th><%= sort_link(@q, :year) %></th>
       <th><%= sort_link(@q, :state) %></th>
+      <th><%= sort_link(@q, :created_at) %></th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -61,6 +62,7 @@
         <td><%= enquiry.model %></td>
         <td><%= enquiry.year %></td>
         <td><%= enquiry.state.humanize %></td>
+        <td><%= enquiry.created_at %></td>
         <td>
           <% if enquiry.can_transition_to?(:done) %>
             <%= link_to 'Done', done_enquiry_state_path(enquiry), data: { confirm: "Are you sure? "} %>
@@ -90,6 +92,6 @@
 
 <%= paginate @enquiries %>
 
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', home_path %>
 
 <%#= link_to 'New Enquiry', new_enquiry_path %>
