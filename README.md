@@ -37,3 +37,11 @@ Please ensure the following:
 - rails server
 - redis-server
 - bundle exec sidekiq
+
+### Testing
+
+Run:
+
+```
+rspec spec
+```
