@@ -2,11 +2,13 @@
 
 <h1>Enquiries (<%= Enquiry.active.count %>)</h1>
 
-<%= link_to 'Refresh', enquiries_path %>
-
 <%= form_tag("/imports", method: "post") do %>
   <%= submit_tag("Check for new enquiries") %>
 <% end %>
+
+<br>
+
+<%= link_to 'Refresh', enquiries_path, style: 'float: right;' %>
 
 <%= search_form_for @q do |f| %>
 
@@ -30,6 +32,8 @@
 
   <%= f.submit %>
 <% end %>
+
+<br>
 
 <table>
   <thead>
