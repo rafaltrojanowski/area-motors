@@ -34,14 +34,14 @@
 <table>
   <thead>
     <tr>
-      <th><%= Enquiry.human_attribute_name(:id)%></th>
-      <th><%= Enquiry.human_attribute_name(:source)%></th>
-      <th><%= Enquiry.human_attribute_name(:name)%></th>
-      <th><%= Enquiry.human_attribute_name(:email)%></th>
-      <th><%= Enquiry.human_attribute_name(:make)%></th>
-      <th><%= Enquiry.human_attribute_name(:model)%></th>
-      <th><%= Enquiry.human_attribute_name(:year)%></th>
-      <th><%= Enquiry.human_attribute_name(:state)%></th>
+      <th><%= sort_link(@q, :id) %></th>
+      <th><%= sort_link(@q, :source) %></th>
+      <th><%= sort_link(@q, :name) %></th>
+      <th><%= sort_link(@q, :email) %></th>
+      <th><%= sort_link(@q, :make) %></th>
+      <th><%= sort_link(@q, :model) %></th>
+      <th><%= sort_link(@q, :year) %></th>
+      <th><%= sort_link(@q, :state) %></th>
       <th>Actions</th>
     </tr>
   </thead>
